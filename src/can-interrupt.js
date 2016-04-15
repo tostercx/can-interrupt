@@ -77,8 +77,10 @@ can.transaction = {
             this.isCancelled = false;
         }
         else {
+            can.batch.start();
             this._runBatchEvents();
             this._runUpdateFunctions();
+            can.batch.stop();
         }
 
         this._reset();
